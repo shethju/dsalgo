@@ -11,7 +11,7 @@ public class HammingDistance {
 
   public static void main(String[] args) {
     // TODO Auto-generated method stub
-    System.out.println("Hamming distance is *" + hammingDistance(1, 2));
+    System.out.println("Hamming distance is **" + hammingDistance(1, 2));
   }
 
 }
