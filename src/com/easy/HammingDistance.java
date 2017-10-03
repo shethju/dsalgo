@@ -1,6 +1,10 @@
 package com.easy;
 
 public class HammingDistance {
+  public static int hammingDistanceEasy(int x, int y) {
+    return Integer.bitCount(x ^ y);
+  }
+
   public static int hammingDistance(int x, int y) {
     int distance = 0;
     String xStr = Integer.toBinaryString(x);
@@ -66,7 +70,7 @@ public class HammingDistance {
 
   public static void main(String[] args) {
     // 10,0 ; 1,0 ; 4, 14
-    System.out.println("Hamming distance is **" + hammingDistance(14, 4));
+    System.out.println("Hamming distance is **" + hammingDistanceEasy(14, 4));
   }
 
 }
