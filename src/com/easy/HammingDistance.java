@@ -5,9 +5,10 @@ public class HammingDistance {
     int distance = 0;
     String xStr = Integer.toBinaryString(x);
     String yStr = Integer.toBinaryString(y);
-    int xStrLength = xStr.length();
-    int yStrLength = yStr.length();
+    int xStrLength = xStr.length() - 1;
+    int yStrLength = yStr.length() - 1;
     int lengthDiff = Math.abs(xStrLength - yStrLength);
+    // int unequalLength;
     boolean isXstrLonger = false;
     boolean isYstrLonger = false;
     boolean isSameLength = false;
@@ -20,31 +21,34 @@ public class HammingDistance {
     }
 
     if (isSameLength) {
-      for (int i = 0; i < xStrLength; i++) {
+      for (int i = 0; i <= xStrLength; i++) {
         if (yStr.charAt(i) != xStr.charAt(i)) {
           distance += 1;
         }
       }
     }
     else {
-      for (int i = 0; i <= lengthDiff - 1; i++) {
         if (isXstrLonger) {
+          for (int i = 0; i <= yStrLength; i++) {
           if (xStr.charAt(lengthDiff + i) != yStr.charAt(i)) {
-            distance += 1;
+              distance += 1;
+            }
           }
         } else if (isYstrLonger) {
+          for (int i = 0; i <= xStrLength; i++) {
           if (yStr.charAt(lengthDiff + i) != xStr.charAt(i)) {
             distance += 1;
           }
+          }
         }
-      }
+
       int iterationLength;
       if (isXstrLonger) {
-        iterationLength = xStrLength - lengthDiff;
+        iterationLength = lengthDiff - 1;
       } else {
-        iterationLength = yStrLength - lengthDiff;
+        iterationLength = lengthDiff - 1;
       }
-      for (int i = 0; i < iterationLength; i++) {
+      for (int i = 0; i <= iterationLength; i++) {
         if (isXstrLonger) {
           if (xStr.charAt(i) == '1') {
             distance += 1;
@@ -61,8 +65,8 @@ public class HammingDistance {
   }
 
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
-    System.out.println("Hamming distance is **" + hammingDistance(5, 7));
+    // 10,0 ; 1,0 ; 4, 14
+    System.out.println("Hamming distance is **" + hammingDistance(14, 4));
   }
 
 }
